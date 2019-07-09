@@ -1,0 +1,67 @@
+#+TITLE: transcription layer
+
+# The maximum height of the logo should be 200 pixels.
+[[img/transcription.png]]
+
+# TOC links should be GitHub style anchors.
+* Table of Contents                                        :TOC_4_gh:noexport:
+- [[#description][Description]]
+  - [[#features][Features:]]
+- [[#install][Install]]
+- [[#key-bindings][Key bindings]]
+- [[#see-also][See Also]]
+
+* Description
+This layer adds support for transcription-mode
+package. I've tried to use transcribe with emms, but moving jumping forwards and
+backwards in audio caused the audio file to start from beginning. It is buggy so
+I decided to try this package which is not covered in melpa.
+
+The gist of the mode is to be able to precisely control media playback
+while in a buffer containing that media's transcription. The main use
+case is to rewind the video by a few second in order to re-listen to a
+few words so they can be typed into the buffer, or corrected. It uses
+VideoLAN's console interface to drive playback from within Emacs.
+
+1. Open the transcription file.
+2. Start the `transcription-mode` minor mode.
+3. `M-x transcription-start` to select a media file to play.
+4. Use the minor mode's keybindings to pause/play and seek.
+
+** Features:
+  - Transcription-mode
+
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =transcription= to the existing =dotspacemacs-configuration-layers= list in this
+file.
+
+* Key bindings
+
+| Key Binding | Description                |
+|-------------+----------------------------|
+| ~SPC x x x~ | Does thing01               |
+| ~C-c C-c~   | Pause/play the media.      |
+| ~C-c s~     | Move backwards 3 seconds.  |
+| ~C-c S~     | Move forwards 3 seconds.   |
+| ~C-c t~     | Move backwards 10 seconds. |
+| ~C-c T~     | Move forwards 10 seconds.  |
+| ~C-c m~     | Move backwards 1 minute.   |
+| ~C-c M~     | Move forwards 1 minute.    |
+|-------------+----------------------------|
+
+The media will still pop up in a VideoLAN window, so if you need to
+make less common adjustments (playback speed, precise seeks, etc.) you
+can switch focus and do it directly in VLC. The keybindings are for
+frequent media control, like skipping back and forth by a few seconds.
+
+# Use GitHub URLs if you wish to link a Spacemacs documentation file or its heading.
+# Examples:
+# [[https://github.com/syl20bnr/spacemacs/blob/master/doc/VIMUSERS.org#sessions]]
+# [[https://github.com/syl20bnr/spacemacs/blob/master/layers/%2Bfun/emoji/README.org][Link to Emoji layer README.org]]
+# If space-doc-mode is enabled, Spacemacs will open a local copy of the linked file.
+
+
+* See Also
+ - [[https://github.com/vermiculus/dialogger.el][dialogger.el]]
